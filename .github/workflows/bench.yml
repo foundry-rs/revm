@@ -27,7 +27,8 @@ jobs:
       - name: Build the benchmark target(s)
         run: cargo codspeed build --profile profiling --workspace --exclude '*example*' --exclude op-revm
       - name: Run the benchmarks
-        uses: CodSpeedHQ/action@v3
+        uses: CodSpeedHQ/action@v4
         with:
+          mode: simulation
           run: cargo codspeed run --workspace
           token: ${{ secrets.CODSPEED_TOKEN }}
